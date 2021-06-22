@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F9BB02BC268155E300CCCC90 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BB02BB268155E300CCCC90 /* main.swift */; };
 		F9BB02C32681560300CCCC90 /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BB02C22681560300CCCC90 /* ConsoleIO.swift */; };
+		F9BB02C52681563D00CCCC90 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BB02C42681563D00CCCC90 /* Roll.swift */; };
+		F9DF726526828C25007F17C6 /* Rainbow in Frameworks */ = {isa = PBXBuildFile; productRef = F9DF726426828C25007F17C6 /* Rainbow */; };
+		F9DF726726828F9D007F17C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF726626828F9D007F17C6 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +30,8 @@
 		F9BB02B8268155E300CCCC90 /* Roll */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Roll; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9BB02BB268155E300CCCC90 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F9BB02C22681560300CCCC90 /* ConsoleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
+		F9BB02C42681563D00CCCC90 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
+		F9DF726626828F9D007F17C6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9DF726526828C25007F17C6 /* Rainbow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				F9BB02C22681560300CCCC90 /* ConsoleIO.swift */,
+				F9DF726626828F9D007F17C6 /* Color.swift */,
+				F9BB02C42681563D00CCCC90 /* Roll.swift */,
 				F9BB02BB268155E300CCCC90 /* main.swift */,
 			);
 			path = Roll;
@@ -81,6 +89,9 @@
 			dependencies = (
 			);
 			name = Roll;
+			packageProductDependencies = (
+				F9DF726426828C25007F17C6 /* Rainbow */,
+			);
 			productName = Roll;
 			productReference = F9BB02B8268155E300CCCC90 /* Roll */;
 			productType = "com.apple.product-type.tool";
@@ -108,6 +119,9 @@
 				Base,
 			);
 			mainGroup = F9BB02AF268155E200CCCC90;
+			packageReferences = (
+				F9DF726326828C25007F17C6 /* XCRemoteSwiftPackageReference "Rainbow" */,
+			);
 			productRefGroup = F9BB02B9268155E300CCCC90 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -123,7 +137,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9BB02BC268155E300CCCC90 /* main.swift in Sources */,
+				F9DF726726828F9D007F17C6 /* Color.swift in Sources */,
 				F9BB02C32681560300CCCC90 /* ConsoleIO.swift in Sources */,
+				F9BB02C52681563D00CCCC90 /* Roll.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +305,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F9DF726326828C25007F17C6 /* XCRemoteSwiftPackageReference "Rainbow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Rainbow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9DF726426828C25007F17C6 /* Rainbow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9DF726326828C25007F17C6 /* XCRemoteSwiftPackageReference "Rainbow" */;
+			productName = Rainbow;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F9BB02B0268155E200CCCC90 /* Project object */;
 }

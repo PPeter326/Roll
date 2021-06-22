@@ -7,5 +7,10 @@
 
 import Foundation
 
-print("Hello, World!")
+let roll = Roll()
 
+if CommandLine.argc < 2 {
+    roll.interactiveMode()
+} else {
+    roll.staticMode()
+}

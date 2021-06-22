@@ -1,19 +1,20 @@
 //
 //  ConsoleIO.swift
-//  Panagram
 //
 //  Created by Peter Wu on 6/14/21.
 //
 
 import Foundation
+import Rainbow
 
-class ConsoleIO {
+final class ConsoleIO {
     
     var standardError = StandardErrorOutput()
     
     enum OutputType {
         case error
         case standard
+        case colored(Color)
     }
     // TODO: use FileHandle instead of Darwin
     
@@ -28,6 +29,8 @@ class ConsoleIO {
             print("\u{001B}[;m\(message)") // writes to stdout by default
         case .error:
             print("\(message)", to: &standardError)
+        case let .colored(color):
+            print("\(message.applyingBackgroundColor(NamedBackgroundColor(rawValue: color.rawValue) ?? .default))")
         }
     }
     
