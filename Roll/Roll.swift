@@ -100,7 +100,6 @@ final class Roll {
     }
     
     func interactiveMode() {
-        // TODO: implementation
         consoleIO.writeMessage("Welcome to Roll.  This program will roll up to 6 dices at a time, and up to 10 repetitions.")
         
         var exitProgram = false
