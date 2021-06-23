@@ -7,7 +7,7 @@
 
 import Foundation
 
-// copied from Rainbow package
+// Copied from Rainbow package
 enum Color: UInt8 {
     case black = 40
     case red

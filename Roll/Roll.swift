@@ -37,7 +37,8 @@ final class Roll {
     }
     
     private enum ErrorType {
-        case invalidNumber
+        case invalidDiceCount
+        case invalidRepeats
         case tooManyArguments
         case tooFewArguments
         case invalidOption
@@ -46,8 +47,10 @@ final class Roll {
     let consoleIO = ConsoleIO()
     
     
+    /// Program will parse arguments directly from command
     func staticMode() {
         assert(CommandLine.argc >= 2, "Too few arguments for static mode")
+        
         var arguments = CommandLine.arguments
         arguments.removeFirst() // remove program argument
         let optionArgument = arguments.first! // force unwrap because we know there's 2 or more arguments
@@ -84,7 +87,7 @@ final class Roll {
                         rollAndPrint(diceCount: diceCount)
                     } else {
                         // user didn't enter a number between 1 and 6.
-                        display(error: .invalidNumber)
+                        display(error: .invalidDiceCount)
                         printUsage()
                     }
                 } else {
@@ -94,31 +97,69 @@ final class Roll {
                 }
             }
         }
+    }
+    
+    func interactiveMode() {
+        // TODO: implementation
+        consoleIO.writeMessage("Welcome to Roll.  This program will roll up to 6 dices at a time, and up to 10 repetitions.")
         
-        func rollRepeat(arguments: [String]) {
-            assert((1...2).contains(arguments.count), "rollRepeat called for invalid # of arguments")
-            
-            if arguments.count == 1 {
-                if let diceCount = Int(arguments.first!), (1...6).contains(diceCount) {
-                    rollAndPrint(diceCount: diceCount)
+        var exitProgram = false
+        
+        while !exitProgram {
+            consoleIO.writeMessage("Type a number between 1 to 6 to roll the dices, or ‘q’ to quit")
+            let firstInput = consoleIO.getInput()
+            if let diceCount = Int(firstInput) {
+                if (1...6).contains(diceCount) {
+                    consoleIO.writeMessage("Type a number between 1 to 10 for repetitions")
+                    let secondInput = consoleIO.getInput()
+                    if let repeatCount = Int(secondInput) {
+                        if (1...10).contains(repeatCount) {
+                            rollAndPrint(diceCount: diceCount, repetitionCount: repeatCount)
+                        } else {
+                            display(error: .invalidRepeats)
+                        }
+                    } else {
+                        display(error: .invalidOption)
+                    }
                 } else {
-                    display(error: .invalidNumber)
-                    printUsage()
+                    display(error: .invalidDiceCount)
                 }
-            } else if arguments.count == 2 {
-                if let repetitionCount = Int(arguments.first!), (1...10).contains(repetitionCount), let diceCount = Int(arguments[1]), (1...6).contains(diceCount) {
-                    rollAndPrint(diceCount: diceCount, repetitionCount: repetitionCount)
+            } else {
+                if firstInput == "q" {
+                    exitProgram = true
                 } else {
-                    display(error: .invalidNumber)
-                    printUsage()
+                    display(error: .invalidOption)
                 }
             }
         }
     }
     
-    func interactiveMode() {
-        // TODO: implementation
-        consoleIO.writeMessage("Interactive Mode")
+    
+    /// This method is to better organize the program branch to execute dice rolls
+    /// - Parameter arguments: An array of string arguments from commandline
+    func rollRepeat(arguments: [String]) {
+        assert((1...2).contains(arguments.count), "rollRepeat called for invalid # of arguments")
+        
+        if arguments.count == 1 {
+            if let diceCount = Int(arguments.first!), (1...6).contains(diceCount) {
+                rollAndPrint(diceCount: diceCount, repetitionCount: 2)
+            } else {
+                display(error: .invalidDiceCount)
+                printUsage()
+            }
+        } else if arguments.count == 2 {
+            if let repetitionCount = Int(arguments.first!), (1...10).contains(repetitionCount) {
+                if let diceCount = Int(arguments[1]), (1...6).contains(diceCount) {
+                    rollAndPrint(diceCount: diceCount, repetitionCount: repetitionCount)
+                } else {
+                    display(error: .invalidDiceCount)
+                    printUsage()
+                }
+            } else {
+                display(error: .invalidRepeats)
+                printUsage()
+            }
+        }
     }
     
     /// This method converts the option string into a tuple of OptionType and the option string
@@ -130,7 +171,7 @@ final class Roll {
     
     /// Prints a brief overview of using this CLI tool to the console
     func printUsage() {
-        let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent
+        let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent.lowercased()
         consoleIO.writeMessage("usage:")
         consoleIO.writeMessage("\(executableName) <# of dices, up to 6>")
         consoleIO.writeMessage("or")
@@ -140,7 +181,13 @@ final class Roll {
         consoleIO.writeMessage("Type \(executableName) without an option to enter interactive mode.")
     }
     
+    
+    /// Rolls the dices and prints them to console
+    /// - Parameters:
+    ///   - diceCount: # of dices to roll
+    ///   - repetitionCount: # of times the dices will be rolled
     func rollAndPrint(diceCount: Int, repetitionCount: Int = 1) {
+        consoleIO.writeMessage("") // first line space above Roll 1
         for i in 1...repetitionCount {
             consoleIO.writeMessage("Roll \(i)")
             var dices = Array(repeating: Dice(), count: diceCount)
@@ -148,14 +195,16 @@ final class Roll {
                 dices[index].roll()
                 printPips(dices[index].pipsLanded)
                 // print space to separate between dices
-                    consoleIO.writeMessage("")
+                consoleIO.writeMessage("")
             }
         }
     }
     
+    
+    /// This method draws the dices based on the landed pips to the console
+    /// - Parameter pips: # of pips landed
     func printPips(_ pips: Int) {
         assert((1...6).contains(pips), "pips count out of range")
-        // TODO: design logic for printing pips in grid
         
         let backgroundColor: Color = .cyan
         switch pips {
@@ -188,16 +237,22 @@ final class Roll {
         }
     }
     
+    /// This method displays all error messages to the console
+    /// - Parameters:
+    ///   - error: ErrorType
+    ///   - option: additional description for when ErrorType is invalidOption
     private func display(error: ErrorType, option: String? = nil) {
         switch error {
-        case .invalidNumber:
-            consoleIO.writeMessage("invalid number", to: .error)
+        case .invalidRepeats:
+            consoleIO.writeMessage("Invalid repeats", to: .error)
+        case .invalidDiceCount:
+            consoleIO.writeMessage("Invalid dice count", to: .error)
         case .invalidOption:
-            consoleIO.writeMessage("invalid \(option ?? "")option", to: .error)
+            consoleIO.writeMessage("Invalid \(option ?? "")option", to: .error)
         case .tooFewArguments:
-            consoleIO.writeMessage("too few arguments", to: .error)
+            consoleIO.writeMessage("Too few arguments", to: .error)
         case .tooManyArguments:
-            consoleIO.writeMessage("too many arguments", to: .error)
+            consoleIO.writeMessage("Too many arguments", to: .error)
         }
     }
 }

@@ -16,7 +16,6 @@ final class ConsoleIO {
         case standard
         case colored(Color)
     }
-    // TODO: use FileHandle instead of Darwin
     
     /// This method prints messages to console or standard error stream, depending
     /// on the output type
