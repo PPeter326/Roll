@@ -10,7 +10,7 @@ placeholder for link to package and instruction
 You can quickly roll a few dices by entering a number from 1 to 6 after the command.
 
 Example: ```roll 2``` will roll two dices, and the roll results will be printed to the console
-placeholder: Screenshot for roll 2
+
 ![ExampleImage](Resources/roll 2 screenshot.png)
 
 ### Options
