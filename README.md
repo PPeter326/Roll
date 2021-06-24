@@ -11,7 +11,7 @@ You can quickly roll a few dices by entering a number from 1 to 6 after the comm
 
 Example: ```roll 2``` will roll two dices, and the roll results will be printed to the console
 
-![ExampleImage](Resources/roll 2 screenshot.png)
+![ExampleImage](Resources/roll2screenshot.png)
 
 ### Options
 
