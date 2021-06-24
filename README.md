@@ -16,7 +16,7 @@ Example: ```roll 2``` will roll two dices, and the roll results will be printed 
 ### Options
 
 * **Repeat**
-You can repeat the rolls up to 10 timex.  Type ```-r``` followed by a number between 1 to 10 to repeat the rolls.  ```-r``` without an argument will default to 2 repetitions.  
+You can repeat the rolls up to 10 times.  Type ```-r``` followed by a number between 1 to 10 to repeat the rolls.  ```-r``` without an argument will default to 2 repetitions.  
 
 ![ExampleImage](Resources/rollRepeatDefault.png)
 
