@@ -17,14 +17,20 @@ Example: ```roll 2``` will roll two dices, and the roll results will be printed 
 
 * **Repeat**
 You can repeat the rolls up to 10 timex.  Type ```-r``` followed by a number between 1 to 10 to repeat the rolls.  ```-r``` without an argument will default to 2 repetitions.  
-placeholder:  Screenshot for roll with repeat option
+
+![ExampleImage](Resources/rollRepeatDefault.png)
+
+![ExampleImage](Resources/rollRepeat3.png)
 
 * **Help**
 Type ```-h``` for quick reference to usage
 
+![ExampleImage](Resources/rollhelp.png)
+
 ### Interactive Mode
 Type ```roll```  with no options and arguments will take you to interactive mode, where you will be prompted to enter the number of dices and repetitions.  After displaying roll results, ther interactive mode continues until you type ```q``` to quit the program. 
-placeholder:  Screenshot for roll interactive mode
+
+![ExampleImage](Resources/rollInteractive.png)
 
 ## License
 
