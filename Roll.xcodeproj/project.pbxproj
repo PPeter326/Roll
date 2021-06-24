@@ -34,7 +34,7 @@
 		F9DF726626828F9D007F17C6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F9DF72682684D5E4007F17C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F9DF726B2684DDFA007F17C6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		F9DF726C2684EE68007F17C6 /* roll2screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roll2screenshot.png; sourceTree = "<group>"; };
+		F9DF726D2684F149007F17C6 /* roll2screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roll2screenshot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		F9DF726A2684DD75007F17C6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F9DF726C2684EE68007F17C6 /* roll2screenshot.png */,
+				F9DF726D2684F149007F17C6 /* roll2screenshot.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
