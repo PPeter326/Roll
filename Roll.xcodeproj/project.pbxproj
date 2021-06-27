@@ -17,8 +17,8 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		F9BB02B6268155E200CCCC90 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			buildActionMask = 8;
+			dstPath = usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -39,6 +39,7 @@
 		F9DF72742684FD00007F17C6 /* rollRepeat3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rollRepeat3.png; sourceTree = "<group>"; };
 		F9DF72752684FD00007F17C6 /* rollInteractive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rollInteractive.png; sourceTree = "<group>"; };
 		F9DF72762684FD00007F17C6 /* rollRepeatDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rollRepeatDefault.png; sourceTree = "<group>"; };
+		F9DF72AD2688EA7C007F17C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		F9BB02BA268155E300CCCC90 /* Roll */ = {
 			isa = PBXGroup;
 			children = (
+				F9DF72AD2688EA7C007F17C6 /* Info.plist */,
 				F9DF72692684DC6A007F17C6 /* Helper */,
 				F9BB02C42681563D00CCCC90 /* Roll.swift */,
 				F9BB02BB268155E300CCCC90 /* main.swift */,
@@ -294,9 +296,13 @@
 		F9BB02C0268155E300CCCC90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Peter Wu (GG58NB3258)";
+				CODE_SIGN_STYLE = Manual;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				DEVELOPMENT_TEAM = GG58NB3258;
+				DSTROOT = "$(inherited)";
 				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Roll/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -305,9 +311,14 @@
 		F9BB02C1268155E300CCCC90 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Peter Wu (GG58NB3258)";
+				CODE_SIGN_STYLE = Manual;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				DEVELOPMENT_TEAM = GG58NB3258;
+				DSTROOT = "$(inherited)";
 				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Roll/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = pwu.commandline.roll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

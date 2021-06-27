@@ -3,7 +3,9 @@
 A simple Command Line App that roll dices and display the results in console
 
 ### Installation
-placeholder for link to package and instruction
+You may download the first release [here](https://github.com/PPeter326/Roll/releases/tag/1.0.0).  Follow the installation instruction to install the app.  Once installed, you can find Roll in the Application folder.  
+
+Commandline invocation coming soon. 
 
 ### Usage
 
