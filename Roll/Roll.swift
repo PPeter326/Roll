@@ -100,12 +100,12 @@ final class Roll {
     }
     
     func interactiveMode() {
-        consoleIO.writeMessage("Welcome to Roll.  This program will roll up to 6 dices at a time, and up to 10 repetitions.")
+        consoleIO.writeMessage("Welcome to Roll.  This program will roll up to 6 dice at a time, and up to 10 repetitions.")
         
         var exitProgram = false
         
         while !exitProgram {
-            consoleIO.writeMessage("Type a number between 1 to 6 to roll the dices, or ‘q’ to quit")
+            consoleIO.writeMessage("Type a number between 1 to 6 to roll the dice, or ‘q’ to quit")
             let firstInput = consoleIO.getInput()
             if let diceCount = Int(firstInput) {
                 if (1...6).contains(diceCount) {
@@ -172,35 +172,35 @@ final class Roll {
     func printUsage() {
         let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent.lowercased()
         consoleIO.writeMessage("usage:")
-        consoleIO.writeMessage("\(executableName) <# of dices, up to 6>")
+        consoleIO.writeMessage("\(executableName) <# of dice, up to 6>")
         consoleIO.writeMessage("or")
-        consoleIO.writeMessage("\(executableName) -r <optional: # of repetitions, default to 2> <# of dices, up to 6>")
+        consoleIO.writeMessage("\(executableName) -r <optional: # of repetitions, default to 2> <# of dice, up to 6>")
         consoleIO.writeMessage("or")
         consoleIO.writeMessage("\(executableName) -h to show usage information")
         consoleIO.writeMessage("Type \(executableName) without an option to enter interactive mode.")
     }
     
     
-    /// Rolls the dices and prints them to console
+    /// Rolls the dice and prints them to console
     /// - Parameters:
-    ///   - diceCount: # of dices to roll
-    ///   - repetitionCount: # of times the dices will be rolled
+    ///   - diceCount: # of dice to roll
+    ///   - repetitionCount: # of times the dice will be rolled
     func rollAndPrint(diceCount: Int, repetitionCount: Int = 1) {
         consoleIO.writeMessage("") // first line space above Roll 1
         for i in 1...repetitionCount {
             consoleIO.writeMessage("Roll \(i)")
-            var dices = Array(repeating: Dice(), count: diceCount)
-            for (index, _) in dices.enumerated() {
-                dices[index].roll()
-                printPips(dices[index].pipsLanded)
-                // print space to separate between dices
+            var dice = Array(repeating: Dice(), count: diceCount)
+            for (index, _) in dice.enumerated() {
+                dice[index].roll()
+                printPips(dice[index].pipsLanded)
+                // print space to separate between dice
                 consoleIO.writeMessage("")
             }
         }
     }
     
     
-    /// This method draws the dices based on the landed pips to the console
+    /// This method draws the dice based on the landed pips to the console
     /// - Parameter pips: # of pips landed
     func printPips(_ pips: Int) {
         assert((1...6).contains(pips), "pips count out of range")
