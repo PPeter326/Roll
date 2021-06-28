@@ -1,6 +1,6 @@
 #  Roll
 
-A simple Command Line App that roll dices and display the results in console
+A simple Command Line App that roll dice and display the results in console
 
 ### Installation
 You may download the first release [here](https://github.com/PPeter326/Roll/releases/tag/1.0.0).  Follow the installation instruction to install the app.  Once installed, you can find Roll in the Application folder.  
@@ -9,9 +9,9 @@ Commandline invocation coming soon.
 
 ### Usage
 
-You can quickly roll a few dices by entering a number from 1 to 6 after the command.
+You can quickly roll a few dice by entering a number from 1 to 6 after the command.
 
-Example: ```roll 2``` will roll two dices, and the roll results will be printed to the console
+Example: ```roll 2``` will roll two dice, and the roll results will be printed to the console
 
 ![ExampleImage](Resources/roll2screenshot.png)
 
