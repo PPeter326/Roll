@@ -7,11 +7,11 @@ You may download the first release [here](https://github.com/PPeter326/Roll/rele
 
 In addition, the package will also execute a post install script which will create an alias that point to Roll in the Application folder.  You may find the alias in the .zshenv file in your home directory, as shown below:
     
-    ```
-    alias %="/Applications/PercentageIncrease"
-    alias roll="/Applications/Roll"
-    ```
-    This will allow you to run **Roll** just by typing ```roll``` inside your terminal.
+```
+alias %="/Applications/PercentageIncrease"
+alias roll="/Applications/Roll"
+```
+This will allow you to run **Roll** just by typing ```roll``` inside your terminal.
 
 
 ### Usage
