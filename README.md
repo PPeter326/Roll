@@ -8,7 +8,6 @@ You may download the first release [here](https://github.com/PPeter326/Roll/rele
 In addition, the package will also execute a post install script which will create an alias that point to Roll in the Application folder.  You may find the alias in the .zshenv file in your home directory, as shown below:
     
 ```
-alias %="/Applications/PercentageIncrease"
 alias roll="/Applications/Roll"
 ```
 This will allow you to run **Roll** just by typing ```roll``` inside your terminal.
@@ -49,5 +48,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This is my first command line app, and I took inspiration and materials from several tutorials and projects, the most notable ones being: 
 
-* PercentageIncrease from @AlexPerathoner.  Here's the [link](https://github.com/AlexPerathoner/PercentageIncrease) to his repository 
+* [PercentageIncrease](https://github.com/AlexPerathoner/PercentageIncrease) from @AlexPerathoner
 * Ray Wenderlich's [Command Line Programs on macOS](https://www.raywenderlich.com/511-command-line-programs-on-macos-tutorial) Tutorial by Eric Soto
