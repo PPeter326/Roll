@@ -3,9 +3,16 @@
 A simple Command Line App that roll dice and display the results in console
 
 ### Installation
-You may download the first release [here](https://github.com/PPeter326/Roll/releases/tag/1.0.0).  Follow the installation instruction to install the app.  Once installed, you can find Roll in the Application folder.  
+You may download the first release [here](https://github.com/PPeter326/Roll/releases/tag/1.0.0).  Follow the installation instruction to install the app.  Once installed, you can find the Roll executable in the Application folder.  
 
-Commandline invocation coming soon. 
+In addition, the package will also execute a post install script which will create an alias that point to Roll in the Application folder.  You may find the alias in the .zshenv file in your home directory, as shown below:
+    
+    ```
+    alias %="/Applications/PercentageIncrease"
+    alias roll="/Applications/Roll"
+    ```
+    This will allow you to run **Roll** just by typing ```roll``` inside your terminal.
+
 
 ### Usage
 
@@ -38,3 +45,9 @@ Type ```roll```  with no options and arguments will take you to interactive mode
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
+## Acknowledgement
+
+This is my first command line app, and I took inspiration and materials from several tutorials and projects, the most notable ones being: 
+
+* PercentageIncrease from @AlexPerathoner.  Here's the [link](https://github.com/AlexPerathoner/PercentageIncrease) to his repository 
+* Ray Wenderlich's [Command Line Programs on macOS](https://www.raywenderlich.com/511-command-line-programs-on-macos-tutorial) Tutorial by Eric Soto
